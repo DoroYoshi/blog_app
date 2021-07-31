@@ -3,7 +3,7 @@ class PostsController < ApplicationController
 
   def index
     @posts = Post.all.order(created_at: :desc)
-　   @new_posts = Post.all.order(created_at: :desc).limit(5)
+    @new_posts = Post.all.order(created_at: :desc).limit(5)
   end
 
   def new
@@ -43,7 +43,7 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :body)
+    params.require(:post).permit(:title, :body, :category_id)
   end
 
   def set_post
