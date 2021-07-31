@@ -9,8 +9,11 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
-    @post.save
-    redirect_to @post, notice: "記事を投稿しました。"
+    if @post.save
+      redirect_to @post, notice: "記事を投稿しました。"
+    else
+      render :new
+    end
   end
 
   def show
